@@ -1,9 +1,27 @@
 'use strict';
 
-module.exports = function (zone, config) {
-  // TODO: Validate the zone, maybe?
+const Joi = require('joi');
+const zoneName = require('./zone_name');
 
-  return {
-    valid: true
-  };
+const schema = Joi.object().keys({
+  name: zoneName.required()
+});
+
+module.exports = function (zone, config) {
+  return new Promise((resolve, reject) => {
+    const response = {
+      errors: {}
+    };
+
+    Joi.validate(zone, schema, (err, value) => {
+      response.valid = !err;
+
+      // Expose the error objects to the caller.
+      if (err) {
+        response.errors.zone = err;
+      }
+
+      resolve(response);
+    });
+  });
 };
