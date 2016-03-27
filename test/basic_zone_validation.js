@@ -36,4 +36,16 @@ lab.experiment('basic zone with default options', () => {
       Code.expect(result.errors.zone.details[0].message).to.equal('"name" is required');
     });
   });
+
+  lab.test('zone with extraneous property', () => {
+    const zone = require('./fixtures/zone_extra_prop');
+
+    return validate(zone).then((result) => {
+      Code.expect(result.valid).to.be.a.boolean();
+      Code.expect(result.valid).to.be.false();
+      Code.expect(result.errors).to.be.an.object();
+      Code.expect(result.errors.zone.details[0].message).to.be.a.string();
+      Code.expect(result.errors.zone.details[0].message).to.equal('"extra_prop" is not allowed');
+    });
+  });
 });
