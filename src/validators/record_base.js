@@ -8,6 +8,6 @@ module.exports = Joi.object({
   id: Joi.any(),
   prefix: Joi.string(),
   zone_name: zoneName,
-  record_type: Joi.string(),
+  record_type: Joi.string().required(),
   ttl: Joi.number().integer().positive()
 });
