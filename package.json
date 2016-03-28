@@ -4,8 +4,7 @@
   "description": "Library to validate DNS zones in EDZIF format.",
   "main": "index.js",
   "scripts": {
-    "test": "lab --coverage --threshold 100",
-    "test:junit": "lab --coverage --threshold 100 --reporter junit"
+    "test": "lab --coverage --threshold 100"
   },
   "repository": {
     "type": "git",
