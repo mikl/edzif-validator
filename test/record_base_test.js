@@ -15,4 +15,17 @@ lab.experiment('record base tests', () => {
     Code.expect(result.error).to.be.null();
     done();
   });
+
+  lab.test('base record with invalid TTL', (done) => {
+    const record = require('./fixtures/record_base_ttl_invalid');
+
+    const result = Joi.validate(record, schema);
+
+    Code.expect(result.error).to.be.an.object();
+    Code.expect(result.error.details).to.be.an.array();
+    Code.expect(result.error.details).to.have.length(1);
+    Code.expect(result.error.details[0].message).to.be.a.string();
+    Code.expect(result.error.details[0].message).to.equal('"ttl" must be a positive number');
+    done();
+  });
 });
