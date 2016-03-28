@@ -48,4 +48,13 @@ lab.experiment('basic zone with default options', () => {
       Code.expect(result.errors.zone.details[0].message).to.equal('"extra_prop" is not allowed');
     });
   });
+
+  lab.test('zone with all allowed properties', () => {
+    const zone = require('./fixtures/zone_allowed_props');
+
+    return validate(zone).then((result) => {
+      Code.expect(result.valid).to.be.a.boolean();
+      Code.expect(result.valid).to.be.true();
+    });
+  });
 });

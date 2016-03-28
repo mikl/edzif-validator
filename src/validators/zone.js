@@ -4,7 +4,9 @@ const Joi = require('joi');
 const zoneName = require('./zone_name');
 
 const schema = Joi.object().keys({
-  name: zoneName.required()
+  name: zoneName.required(),
+  records: Joi.array(),
+  vendor: Joi.object()
 });
 
 module.exports = function (zone, config) {
