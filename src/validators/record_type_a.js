@@ -5,7 +5,7 @@ const Joi = require('joi');
 const recordBase = require('./record_base');
 
 module.exports = Hoek.clone(recordBase).keys({
-  record_type: Joi.string().valid('a').insensitive().required(),
+  record_type: Joi.string().valid('A').required(),
   address: Joi.string().ip({
     cidr: 'forbidden',
     version: [ 'ipv4' ]

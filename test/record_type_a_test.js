@@ -42,4 +42,24 @@ lab.experiment('record type A tests', () => {
     Code.expect(result.error.details[0].message).to.startWith('"address" must be a valid ip address');
     done();
   });
+
+  lab.test('A record with invalid type', (done) => {
+    const record = {
+      "id": 42,
+      "prefix": "me",
+      "zone_name": "example.com",
+      "record_type": "B",
+      "ttl": 43200,
+      "address": "192.168.42.1"
+    };
+
+    const result = Joi.validate(record, schema);
+
+    Code.expect(result.error).to.be.an.object();
+    Code.expect(result.error.details).to.be.an.array();
+    Code.expect(result.error.details).to.have.length(1);
+    Code.expect(result.error.details[0].message).to.be.a.string();
+    Code.expect(result.error.details[0].message).to.equal('"record_type" must be one of [A]');
+    done();
+  });
 });
