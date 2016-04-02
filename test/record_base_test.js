@@ -10,6 +10,21 @@ lab.experiment('record base tests', () => {
   lab.test('valid base record', (done) => {
     const record = {
       "id": 42,
+      "prefix": "",
+      "zone_name": "example.com",
+      "record_type": "BASE",
+      "ttl": 43200
+    };
+
+    const result = Joi.validate(record, schema);
+
+    Code.expect(result.error).to.be.null();
+    done();
+  });
+
+  lab.test('valid base record with prefix', (done) => {
+    const record = {
+      "id": 42,
       "prefix": "me",
       "zone_name": "example.com",
       "record_type": "BASE",
