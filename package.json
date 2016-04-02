@@ -4,6 +4,7 @@
   "description": "Library to validate DNS zones in EDZIF format.",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon -e js,json --exec npm run test",
     "test": "lab --coverage --threshold 100"
   },
   "repository": {
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "code": "^2.1.1",
-    "lab": "^10.3.0"
+    "lab": "^10.3.0",
+    "nodemon": "^1.9.1"
   }
 }
