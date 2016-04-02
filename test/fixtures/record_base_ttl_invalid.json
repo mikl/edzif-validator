@@ -1,7 +1,0 @@
-{
-  "id": 42,
-  "prefix": "me",
-  "zone_name": "example.com",
-  "record_type": "BASE",
-  "ttl": -37
-}

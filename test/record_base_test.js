@@ -8,7 +8,13 @@ const schema = require('../src/validators/record_base');
 
 lab.experiment('record base tests', () => {
   lab.test('valid base record', (done) => {
-    const record = require('./fixtures/record_base_valid');
+    const record = {
+      "id": 42,
+      "prefix": "me",
+      "zone_name": "example.com",
+      "record_type": "BASE",
+      "ttl": 43200
+    };
 
     const result = Joi.validate(record, schema);
 
@@ -17,7 +23,13 @@ lab.experiment('record base tests', () => {
   });
 
   lab.test('base record with invalid TTL', (done) => {
-    const record = require('./fixtures/record_base_ttl_invalid');
+    const record = {
+      "id": 42,
+      "prefix": "me",
+      "zone_name": "example.com",
+      "record_type": "BASE",
+      "ttl": -37
+    };
 
     const result = Joi.validate(record, schema);
 
