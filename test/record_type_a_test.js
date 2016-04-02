@@ -10,7 +10,6 @@ lab.experiment('record type A tests', () => {
   lab.test('valid A record', (done) => {
     const record = {
       "id": 42,
-      "prefix": "me",
       "zone_name": "example.com",
       "record_type": "A",
       "ttl": 43200,
@@ -26,7 +25,6 @@ lab.experiment('record type A tests', () => {
   lab.test('A record with invalid IP address', (done) => {
     const record = {
       "id": 42,
-      "prefix": "me",
       "zone_name": "example.com",
       "record_type": "A",
       "ttl": 43200,
@@ -46,7 +44,6 @@ lab.experiment('record type A tests', () => {
   lab.test('A record with IP address with CIDR', (done) => {
     const record = {
       "id": 42,
-      "prefix": "me",
       "zone_name": "example.com",
       "record_type": "A",
       "ttl": 43200,
@@ -66,7 +63,6 @@ lab.experiment('record type A tests', () => {
   lab.test('A record with invalid type', (done) => {
     const record = {
       "id": 42,
-      "prefix": "me",
       "zone_name": "example.com",
       "record_type": "B",
       "ttl": 43200,
