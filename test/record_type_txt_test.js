@@ -22,6 +22,38 @@ lab.experiment('record type TXT tests', () => {
     done();
   });
 
+  lab.test('valid TXT record with DMARC value', (done) => {
+    const record = {
+      "id": 42,
+      "prefix": "_dmarc",
+      "zone_name": "example.com",
+      "record_type": "TXT",
+      "ttl": 43200,
+      "text_content": "v=DMARC1; p=reject"
+    };
+
+    const result = Joi.validate(record, schema);
+
+    Code.expect(result.error).to.be.null();
+    done();
+  });
+
+  lab.test('valid TXT record with DKIM value', (done) => {
+    const record = {
+      "id": 42,
+      "prefix": "mail._domainkey",
+      "zone_name": "example.com",
+      "record_type": "TXT",
+      "ttl": 43200,
+      "text_content": "v=DKIM1; k=rsa; s=email; p=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa+aaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaa+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaa+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaa+aaaaaaaaa"
+    };
+
+    const result = Joi.validate(record, schema);
+
+    Code.expect(result.error).to.be.null();
+    done();
+  });
+
   lab.test('TXT record with invalid type', (done) => {
     const record = {
       "id": 42,
