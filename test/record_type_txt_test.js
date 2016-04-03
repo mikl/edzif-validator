@@ -72,4 +72,42 @@ lab.experiment('record type TXT tests', () => {
     Code.expect(result.error.details[0].message).to.startWith('"record_type" must be one of [TXT]');
     done();
   });
+
+  lab.test('TXT record with invalid content “ø”', (done) => {
+    const record = {
+      "id": 42,
+      "zone_name": "example.com",
+      "record_type": "TXT",
+      "ttl": 43200,
+      "text_content": "v=spf1 møx -all"
+    };
+
+    const result = Joi.validate(record, schema);
+
+    Code.expect(result.error).to.be.an.object();
+    Code.expect(result.error.details).to.be.an.array();
+    Code.expect(result.error.details).to.have.length(1);
+    Code.expect(result.error.details[0].message).to.be.a.string();
+    Code.expect(result.error.details[0].message).to.match(/^"text_content" with value.+fails to match the required pattern/);
+    done();
+  });
+
+  lab.test('TXT record with invalid content “💩”', (done) => {
+    const record = {
+      "id": 42,
+      "zone_name": "example.com",
+      "record_type": "TXT",
+      "ttl": 43200,
+      "text_content": "💩"
+    };
+
+    const result = Joi.validate(record, schema);
+
+    Code.expect(result.error).to.be.an.object();
+    Code.expect(result.error.details).to.be.an.array();
+    Code.expect(result.error.details).to.have.length(1);
+    Code.expect(result.error.details[0].message).to.be.a.string();
+    Code.expect(result.error.details[0].message).to.match(/^"text_content" with value.+fails to match the required pattern/);
+    done();
+  });
 });
