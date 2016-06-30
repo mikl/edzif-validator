@@ -21,12 +21,12 @@
   },
   "homepage": "https://github.com/mikl/edzif-validator#readme",
   "dependencies": {
-    "hoek": "^3.0.4",
-    "joi": "^8.0.5"
+    "hoek": "^4.0.1",
+    "joi": "^8.4.2"
   },
   "devDependencies": {
-    "code": "^2.1.1",
-    "lab": "^10.3.0",
-    "nodemon": "^1.9.1"
+    "code": "^3.0.1",
+    "lab": "^10.8.2",
+    "nodemon": "^1.9.2"
   }
 }
