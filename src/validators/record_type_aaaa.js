@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const Hoek = require('hoek');
-const Joi = require('joi');
-const recordBase = require('./record_base');
+const Hoek = require('hoek')
+const Joi = require('joi')
+const recordBase = require('./record_base')
 
 module.exports = Hoek.clone(recordBase).keys({
   record_type: Joi.string().valid('AAAA').required(),
@@ -10,4 +10,4 @@ module.exports = Hoek.clone(recordBase).keys({
     cidr: 'forbidden',
     version: [ 'ipv6' ]
   }).required()
-});
+})

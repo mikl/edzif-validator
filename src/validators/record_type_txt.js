@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const Hoek = require('hoek');
-const Joi = require('joi');
-const recordBase = require('./record_base');
+const Hoek = require('hoek')
+const Joi = require('joi')
+const recordBase = require('./record_base')
 
 module.exports = Hoek.clone(recordBase).keys({
   record_type: Joi.string().valid('TXT').required(),
@@ -11,4 +11,4 @@ module.exports = Hoek.clone(recordBase).keys({
   // below. The \[\\\]\ sequence just whitelists the characters [\], but
   // since they all need escaping in regex, it becomes a bit strange.
   text_content: Joi.string().required().regex(/^[A-Za-z0-9 !"#\$%&'()*+,-.\/:;<=>?@\[\\\]\^_`{\|}~-]+$/)
-});
+})

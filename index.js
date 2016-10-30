@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-const validator = require('./src/validators/zone');
+const validator = require('./src/validators/zone')
 
-module.exports = validator;
+module.exports = validator
