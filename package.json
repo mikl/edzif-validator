@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -e js,json --verbose --exec npm run test",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
     "test": "lab --coverage --threshold 100"
   },
   "repository": {
@@ -26,7 +28,9 @@
   },
   "devDependencies": {
     "code": "^4.0.0",
+    "eslint": "^3.9.0",
     "lab": "^11.1.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "standard": "^8.5.0"
   }
 }
