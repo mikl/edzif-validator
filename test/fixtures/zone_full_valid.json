@@ -1,0 +1,26 @@
+{
+  "name": "example.com",
+  "records": [
+    {
+      "id": 42,
+      "zone_name": "example.com",
+      "record_type": "A",
+      "ttl": 43200,
+      "address": "192.168.1.42"
+    },
+    {
+      "id": 42,
+      "zone_name": "kvajpande.example.com",
+      "record_type": "A",
+      "ttl": 43200,
+      "address": "10.0.0.1"
+    },
+    {
+      "id": 42,
+      "zone_name": "example.com",
+      "record_type": "AAAA",
+      "ttl": 43200,
+      "address": "::1"
+    }
+  ]
+}

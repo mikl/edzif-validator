@@ -1,11 +1,13 @@
 'use strict';
 
 const Joi = require('joi');
+const RecordTypeA = require('./record_type_a');
+const RecordTypeAAAA = require('./record_type_aaaa');
 const zoneName = require('./zone_name');
 
 const schema = Joi.object().keys({
   name: zoneName.required(),
-  records: Joi.array(),
+  records: Joi.array().items(RecordTypeA, RecordTypeAAAA),
   vendor: Joi.object()
 });
 
