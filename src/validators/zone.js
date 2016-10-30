@@ -3,11 +3,20 @@
 const Joi = require('joi');
 const RecordTypeA = require('./record_type_a');
 const RecordTypeAAAA = require('./record_type_aaaa');
+const RecordTypeCNAME = require('./record_type_cname');
+const RecordTypeMX = require('./record_type_mx');
+const RecordTypeNS = require('./record_type_ns');
+const RecordTypeSOA = require('./record_type_soa');
+const RecordTypeSRV = require('./record_type_srv');
+const RecordTypeTXT = require('./record_type_txt');
 const zoneName = require('./zone_name');
 
 const schema = Joi.object().keys({
   name: zoneName.required(),
-  records: Joi.array().items(RecordTypeA, RecordTypeAAAA),
+  records: Joi.array().items(
+    RecordTypeA, RecordTypeAAAA, RecordTypeCNAME, RecordTypeMX, RecordTypeNS,
+    RecordTypeSOA, RecordTypeSRV, RecordTypeTXT
+  ),
   vendor: Joi.object()
 });
 
