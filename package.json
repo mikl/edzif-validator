@@ -1,6 +1,6 @@
 {
   "name": "edzif-validator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Library to validate DNS zones in EDZIF format.",
   "main": "index.js",
   "scripts": {
