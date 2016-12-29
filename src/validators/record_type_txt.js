@@ -1,10 +1,9 @@
 'use strict'
 
-const Hoek = require('hoek')
 const Joi = require('joi')
 const recordBase = require('./record_base')
 
-module.exports = Hoek.clone(recordBase).keys({
+module.exports = recordBase.keys({
   record_type: Joi.string().valid('TXT').required(),
   // Allowed in TXT records are ASCII letters, plus a selected set of
   // symbols, which translates to this gobbledygook you see in the regex

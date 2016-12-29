@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/mikl/edzif-validator#readme",
   "dependencies": {
-    "hoek": "^4.1.0",
     "joi": "^10.1.0"
   },
   "devDependencies": {
