@@ -3,7 +3,7 @@
 const Code = require('code')
 const Lab = require('lab')
 const lab = exports.lab = Lab.script()
-const validate = require('..')
+const { Zone: validate } = require('..')
 
 lab.experiment('basic zone with default options', () => {
   lab.test('simplest use case', () => {
