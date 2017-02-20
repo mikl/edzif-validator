@@ -6,5 +6,5 @@ const recordBase = require('./record_base')
 
 module.exports = recordBase.keys({
   record_type: Joi.string().valid('CNAME').required(),
-  name: domainName.required()
+  name: domainName.required().allow('@')
 })
