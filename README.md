@@ -7,6 +7,17 @@ EDZIF validator
 
 Library to validate DNS zones in EDZIF format.
 
+### Example usage
+
+To validate a zone (ES6 syntax, Node.js):
+
+    const { Zone } = require('edzif-validator');
+
+    Zone(zoneData).then((result) => {
+        // Check result.valid to see if we got a valid response.
+        // Check result.errors to see any errors returned.
+    });
+
 ### Development
 
 To run the test suite whenever the code changes, run:
