@@ -12,6 +12,8 @@ const RecordTypeTXT = require('./record_type_txt')
 const zoneName = require('./zone_name')
 
 const schema = Joi.object().keys({
+  // Implementation specific, any kind of ID is allowed.
+  id: Joi.any(),
   name: zoneName.required(),
   records: Joi.array().items(
     RecordTypeA, RecordTypeAAAA, RecordTypeCNAME, RecordTypeMX, RecordTypeNS,
