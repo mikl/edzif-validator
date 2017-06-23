@@ -23,20 +23,19 @@ const schema = Joi.object().keys({
 })
 
 module.exports = function (zone, config) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const response = {
       errors: {}
     }
 
-    Joi.validate(zone, schema, (err, value) => {
-      response.valid = !err
+    const result = Joi.validate(zone, schema, { abortEarly: false })
 
-      // Expose the error objects to the caller.
-      if (err) {
-        response.errors.zone = err
-      }
+    response.valid = !result.error
+    // Expose the error objects to the caller.
+    if (result.error) {
+      response.errors.zone = result.error
+    }
 
-      resolve(response)
-    })
+    resolve(response)
   })
 }
