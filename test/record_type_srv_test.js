@@ -15,7 +15,8 @@ lab.experiment('SRV record tests', () => {
       'ttl': 43200,
       'name': 'smtp.example.com',
       'port': 587,
-      'priority': 10
+      'priority': 10,
+      'weight': 10
     }
 
     const result = Joi.validate(record, schema)
@@ -32,7 +33,8 @@ lab.experiment('SRV record tests', () => {
       'ttl': 43200,
       'name': 'smtp.example.com',
       'port': -587,
-      'priority': 10
+      'priority': 10,
+      'weight': 10
     }
 
     const result = Joi.validate(record, schema)
@@ -53,7 +55,8 @@ lab.experiment('SRV record tests', () => {
       'ttl': 43200,
       'name': 'smtp.example.com',
       'port': 72000,
-      'priority': 10
+      'priority': 10,
+      'weight': 10
     }
 
     const result = Joi.validate(record, schema)
@@ -73,7 +76,8 @@ lab.experiment('SRV record tests', () => {
       'record_type': 'SRV',
       'ttl': 43200,
       'port': 587,
-      'priority': 10
+      'priority': 10,
+      'weight': 10
     }
 
     const result = Joi.validate(record, schema)
@@ -93,7 +97,8 @@ lab.experiment('SRV record tests', () => {
       'record_type': 'SRV',
       'ttl': 43200,
       'name': 'smtp.example.com',
-      'priority': 10
+      'priority': 10,
+      'weight': 10
     }
 
     const result = Joi.validate(record, schema)
@@ -114,7 +119,8 @@ lab.experiment('SRV record tests', () => {
       'ttl': 43200,
       'name': 'smtp.example.com',
       'port': 10,
-      'priority': 10
+      'priority': 10,
+      'weight': 10
     }
 
     const result = Joi.validate(record, schema)

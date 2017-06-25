@@ -8,5 +8,6 @@ module.exports = recordBase.keys({
   record_type: Joi.string().valid('SRV').required(),
   name: domainName.required(),
   port: Joi.number().integer().positive().max(65535).required(),
-  priority: Joi.number().integer().positive().max(500).required()
+  priority: Joi.number().integer().min(0).max(500).required(),
+  weight: Joi.number().integer().min(0).max(500).required()
 })

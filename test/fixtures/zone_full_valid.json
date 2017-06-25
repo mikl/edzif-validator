@@ -70,7 +70,8 @@
       "ttl": 43200,
       "name": "mail.example.com",
       "port": 587,
-      "priority": 10
+      "priority": 10,
+      "weight": 10
     },
     {
       "id": 443,
